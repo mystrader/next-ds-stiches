@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { css } from "@stitches/core";
 
+
+
+
 const body = css({
   padding: 40,
 });
@@ -8,8 +11,7 @@ const body = css({
 const button = css({
   appearance: "none",
   border: "none",
-  height: 25,
-  fontSize: 13,
+
   borderRadius: "9999px",
   backgroundColor: "transparent",
   marginRight: 10,
@@ -17,6 +19,17 @@ const button = css({
   variants: {
     // MODO 1 -  VARIANT
     variant: {
+      size: {
+        1: {
+          height: 25,
+          fontSize: 13,
+        },
+        1: {
+          height: 35,
+          fontSize: 15,
+        },
+      },
+
       gray: {
         backgroundColor: "Gainsboro",
         "&:hover": {
@@ -63,6 +76,7 @@ const button = css({
   // MODO 3 -  DEFAULT_VARIANTS
   defaultVariants: {
     variant: "gray",
+    size: 1,
   },
 });
 
@@ -87,6 +101,18 @@ export default function Home() {
       </button>
       <button className={button({ variant: "purple", outlined: true })}>
         Button Coumppond Variants - purple
+      </button>
+
+      <h2>responsive</h2>
+      <button
+        className={button({
+          size: {
+            "@initial": 1,
+            "@media (min-width: 768px)": 2,
+          },
+        })}
+      >
+        Reponsive Button
       </button>
     </div>
   );
