@@ -1,18 +1,56 @@
 import Head from "next/head";
-import { css } from "@stitches/core";
+import { createStitches } from "@stitches/core";
 
+const { css } = createStitches({
+  theme: {
+    colors: {
+      lightPurple: "#b5a8ff",
+      basePurple: "#7c4dff",
+      darkPurple: "#5c2dff",
 
-
+      gray100: "hsl(206,22%,99%)",
+      gray200: "hsl(206,12%,97%)",
+      gray300: "hsl(206,11%,92%)",
+      gray400: "hsl(206,10%,84%)",
+      gray500: "hsl(206,10%,76%)",
+      gray600: "hsl(206,10%,44%)",
+    },
+    space: {
+      1: "0.25rem",
+      2: "0.5rem",
+      3: "0.75rem",
+      4: "1rem",
+      5: "1.25rem",
+      6: "1.5rem",
+      7: "1.75rem",
+    },
+    size: {
+      1: "5px",
+      2: "10px",
+      3: "15px",
+      4: "20px",
+      5: "25px",
+      6: "30px",
+      7: "35px",
+    },
+    radii: {
+      round: "9999px",
+    },
+    fontSizes: {
+      1: "13px",
+      2: "15px",
+    },
+  },
+});
 
 const body = css({
-  padding: 40,
+  padding: "$5",
 });
 
 const button = css({
   appearance: "none",
   border: "none",
-
-  borderRadius: "9999px",
+  borderRadius: "$round",
   backgroundColor: "transparent",
   marginRight: 10,
 
@@ -21,25 +59,25 @@ const button = css({
     variant: {
       size: {
         1: {
-          height: 25,
-          fontSize: 13,
+          height: "$5",
+          fontSize: "$1",
         },
-        1: {
-          height: 35,
-          fontSize: 15,
+        2: {
+          height: "$7",
+          fontSize: "$2",
         },
       },
 
       gray: {
-        backgroundColor: "Gainsboro",
+        backgroundColor: "$gray500",
         "&:hover": {
-          backgroundColor: "LightGray",
+          backgroundColor: "$gray400",
         },
       },
       purple: {
-        backgroundColor: "BlueViolet",
+        backgroundColor: "$basePurple",
         "&:hover": {
-          backgroundColor: "DarkViolet",
+          backgroundColor: "$darkPurple",
         },
       },
     },
@@ -57,15 +95,15 @@ const button = css({
       variant: "gray",
       outlined: true,
       css: {
-        borderColor: "lightGray",
+        borderColor: "$gray600",
       },
     },
     {
       variant: "purple",
       outlined: true,
       css: {
-        borderColor: "darkViolet",
-        color: "darkViolet",
+        borderColor: "$basePurple",
+        color: "$darkPurple",
         "&:hover": {
           color: "white",
         },
@@ -75,8 +113,8 @@ const button = css({
 
   // MODO 3 -  DEFAULT_VARIANTS
   defaultVariants: {
-    variant: "gray",
-    size: 1,
+    variant: "$gray400",
+    size: "$2",
   },
 });
 
